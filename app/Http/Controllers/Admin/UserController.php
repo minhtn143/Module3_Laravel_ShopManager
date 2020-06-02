@@ -53,7 +53,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->roles()->sync($request->roles);
-
+        return redirect()->route('admin.users.index');
     }
 
     /**
