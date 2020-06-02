@@ -5,9 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Services\UserService;
 
 class UserController extends Controller
 {
+    protected $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        
+        $users =  $this->userService->getAllUsers();
+        return view('admin.users.index');
     }
 
     /**
