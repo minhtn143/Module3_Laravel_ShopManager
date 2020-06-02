@@ -13,7 +13,7 @@
                         {{ method_field('PUT') }}
                         @foreach ($roles as $role)
                             <div class="form-checkbox">
-                                <input type="checkbox" name="role[]" value="{{ $role->id }}" id="role-{{ $role->id }}">
+                                <input type="checkbox" name="roles[]" value="{{ $role->id }}" id="role-{{ $role->id }}">
                                 <label for="role-{{ $role->id }}">{{ $role->name }}</label>
                             </div>
                         @endforeach
