@@ -1,5 +1,5 @@
 <?php 
-namespace App\Http\Services\Admin;
+namespace App\Http\Services;
 
 use App\Http\Repositories\Admin\UserRepository;
 use App\User;
@@ -18,4 +18,3 @@ class UserService
         return $this->userRepo->getAll();
     }
 }
-?>

@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     @foreach ($users as $user)
-                        {{ $user->name }}
+                    {{ $user->name }}
                     @endforeach
                     card body!
                 </div>

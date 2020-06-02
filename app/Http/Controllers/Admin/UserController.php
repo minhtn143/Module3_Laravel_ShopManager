@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Services\Admin\UserService;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -11,10 +10,9 @@ class UserController extends Controller
 {
     protected $userService;
 
-    public function __construct(UserService $userService)
+    public function __construct()
     {
         $this->middleware('auth');
-        $this->userService = $userService;
     }
     /**
      * Display a listing of the resource.
