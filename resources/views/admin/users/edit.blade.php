@@ -10,8 +10,7 @@
                 <div class="card-body">
                     <form action="{{ route('admin.users.update',$user) }}" method="POST">
                         @csrf
-                        {{ method_fiedld('PUT') }}
-                        
+                        {{ method_field('PUT') }}
                         @foreach ($roles as $role)
                             <div class="form-checkbox">
                                 <input type="checkbox" name="role[]" value="{{ $role->id }}" id="role-{{ $role->id }}">
@@ -19,6 +18,7 @@
                             </div>
                         @endforeach
                         <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-secondary" action="windown.history.go(-1)">Back</button>
                         
                     </form>
                 </div>
