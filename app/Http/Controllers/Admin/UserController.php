@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,12 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        
+        $roles = Role::all();
+
+        return view('admin.users.edit')->with([
+            'roles'=>$roles,
+            'user'=> $user
+            ]);
     }
 
     /**
