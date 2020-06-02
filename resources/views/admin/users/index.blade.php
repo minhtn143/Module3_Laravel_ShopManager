@@ -8,7 +8,9 @@
                 <div class="card-header">Users Management</div>
 
                 <div class="card-body">
-                    
+                    @foreach ($users as $user)
+                        {{ $user->name }}
+                    @endforeach
                     card body!
                 </div>
             </div>
