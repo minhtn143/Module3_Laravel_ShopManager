@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Role;
 use App\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -24,7 +25,7 @@ class UserController extends Controller
     {
         // $users =  $this->userService->getAllUsers();
         $users =  User::all();
-        return view('admin.users.index')->with('users',$users);
+        return view('admin.users.index')->with('users', $users);
     }
 
     /**
@@ -35,12 +36,15 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        if (Gate::denies('edit-users')) {
+            return redirect(route('admin.users.index'));
+        }
         $roles = Role::all();
 
         return view('admin.users.edit')->with([
-            'roles'=>$roles,
-            'user'=> $user
-            ]);
+            'roles' => $roles,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -52,7 +56,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-    
+
         $user->roles()->sync($request->roles);
         return redirect()->route('admin.users.index');
     }
@@ -65,6 +69,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        if (Gate::denies('delete-users')) {
+           return redirect(route('admin.users.index'));
+        }
         $user->roles()->detach();
         $user->delete();
 

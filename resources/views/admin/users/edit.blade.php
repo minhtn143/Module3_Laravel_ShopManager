@@ -12,14 +12,14 @@
                         @csrf
                         {{ method_field('PUT') }}
                         @foreach ($roles as $role)
-                            <div class="form-checkbox">
-                                <input type="checkbox" name="roles[]" value="{{ $role->id }}" id="role-{{ $role->id }}">
-                                <label for="role-{{ $role->id }}">{{ $role->name }}</label>
-                            </div>
+                        <div class="form-checkbox">
+                            <input type="checkbox" name="roles[]" value="{{ $role->id }}" id="role-{{ $role->id }}">
+                            <label for="role-{{ $role->id }}">{{ $role->name }}</label>
+                        </div>
                         @endforeach
                         <button type="submit" class="btn btn-primary">Update</button>
                         <button type="button" class="btn btn-secondary" action="windown.history.go(-1)">Back</button>
-                        
+
                     </form>
                 </div>
             </div>
