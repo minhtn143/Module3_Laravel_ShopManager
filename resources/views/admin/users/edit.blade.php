@@ -13,8 +13,11 @@
                         {{ method_field('PUT') }}
                         @foreach ($roles as $role)
                         <div class="form-checkbox">
-                            <input type="checkbox" name="roles[]" value="{{ $role->id }}" id="role-{{ $role->id }}">
-                            <label for="role-{{ $role->id }}">{{ $role->name }}</label>
+                            <input type="checkbox" name="roles[]" value="{{ $role->id }}" id="role-{{ $role->id }}"
+                            @if($user->roles->pluck('id')->contains($roles->id))
+                                checked
+                            @endif>
+                            <label for="role->{{ $role->id }}">{{ $role->name }}</label>
                         </div>
                         @endforeach
                         <button type="submit" class="btn btn-primary">Update</button>
