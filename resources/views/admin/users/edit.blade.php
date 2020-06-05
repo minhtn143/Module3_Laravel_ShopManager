@@ -14,7 +14,7 @@
                         @foreach ($roles as $role)
                         <div class="form-checkbox">
                             <input type="checkbox" name="roles[]" value="{{ $role->id }}" id="role-{{ $role->id }}"
-                            @if($user->roles->pluck('id')->contains($roles->id))
+                            @if($user->hasRoles($role->name))
                                 checked
                             @endif>
                             <label for="role->{{ $role->id }}">{{ $role->name }}</label>
