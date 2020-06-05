@@ -18,7 +18,7 @@
                         </div>
                         @endforeach
                         <button type="submit" class="btn btn-primary">Update</button>
-                        <button type="button" class="btn btn-secondary" action="windown.history.go(-1)">Back</button>
+                        <button type="button" class="btn btn-secondary" action="window.history.go(-1)">Back</button>
 
                     </form>
                 </div>
