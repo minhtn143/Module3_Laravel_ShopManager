@@ -51,4 +51,6 @@
         </div>
     </div>
 </div>
+@notify_js
+@notify_render
 @endsection
